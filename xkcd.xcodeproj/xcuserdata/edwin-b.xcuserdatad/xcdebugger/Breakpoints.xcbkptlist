@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "1.0">
+   <FileBreakpoints>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/xkcdEngine.m"
+         timestampString = "350350851.976148"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-getCurrentComicWithURL:onCompletion:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/comicViewer.m"
+         timestampString = "350345652.269577"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-BackgroundImageLoadingwithURL:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/xkcdCell.m"
+         timestampString = "350343632.59213"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "-initWithStyle:reuseIdentifier:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/xkcdEngine.m"
+         timestampString = "350350856.011969"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-getCurrentComicWithURL:onCompletion:"
+         landmarkType = "5">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "__50-[xkcdEngine getCurrentComicWithURL:onCompletion:]_block_invoke_0"
+               urlString = "file://localhost/Users/edwin-b/Desktop/Personal/xkcd/xkcd/xkcd/xkcdEngine.m"
+               timestampString = "350350908.817362"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "56"
+               endingLineNumber = "56">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "__copy_helper_block_"
+               urlString = "file://localhost/Users/edwin-b/Desktop/Personal/xkcd/xkcd/xkcd/xkcdEngine.m"
+               timestampString = "350350908.817783"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "56"
+               endingLineNumber = "56">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "__destroy_helper_block_"
+               urlString = "file://localhost/Users/edwin-b/Desktop/Personal/xkcd/xkcd/xkcd/xkcdEngine.m"
+               timestampString = "350350908.818107"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "56"
+               endingLineNumber = "56">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "__50-[xkcdEngine getCurrentComicWithURL:onCompletion:]_block_invoke_063"
+               urlString = "file://localhost/Users/edwin-b/Desktop/Personal/xkcd/xkcd/xkcd/xkcdEngine.m"
+               timestampString = "350350908.818475"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "56"
+               endingLineNumber = "56">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+   </FileBreakpoints>
+</Bucket>
