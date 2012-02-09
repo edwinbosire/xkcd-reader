@@ -15,6 +15,8 @@
 		9602426A14E1B93C0066D10A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9602426914E1B93C0066D10A /* QuartzCore.framework */; };
 		9602426D14E1CBBA0066D10A /* xkcdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9602426C14E1CBBA0066D10A /* xkcdCell.m */; };
 		9602426F14E1D9600066D10A /* backgroundImage_repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 9602426E14E1D9600066D10A /* backgroundImage_repeat.png */; };
+		9602427C14E32C080066D10A /* singleComic.png in Resources */ = {isa = PBXBuildFile; fileRef = 9602427B14E32C080066D10A /* singleComic.png */; };
+		9602427F14E32C610066D10A /* skull-n-bones.png in Resources */ = {isa = PBXBuildFile; fileRef = 9602427E14E32C610066D10A /* skull-n-bones.png */; };
 		9608F2E414DED3A500792CE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9608F2E314DED3A500792CE0 /* UIKit.framework */; };
 		9608F2E614DED3A500792CE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9608F2E514DED3A500792CE0 /* Foundation.framework */; };
 		9608F2E814DED3A500792CE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9608F2E714DED3A500792CE0 /* CoreGraphics.framework */; };
@@ -56,6 +58,8 @@
 		9602426B14E1CBBA0066D10A /* xkcdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xkcdCell.h; sourceTree = "<group>"; };
 		9602426C14E1CBBA0066D10A /* xkcdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xkcdCell.m; sourceTree = "<group>"; };
 		9602426E14E1D9600066D10A /* backgroundImage_repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundImage_repeat.png; sourceTree = "<group>"; };
+		9602427B14E32C080066D10A /* singleComic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singleComic.png; sourceTree = "<group>"; };
+		9602427E14E32C610066D10A /* skull-n-bones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skull-n-bones.png"; sourceTree = "<group>"; };
 		9608F2DF14DED3A500792CE0 /* xkcd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xkcd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9608F2E314DED3A500792CE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9608F2E514DED3A500792CE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -139,6 +143,8 @@
 		9602427114E1DB4F0066D10A /* comicVC */ = {
 			isa = PBXGroup;
 			children = (
+				9602427E14E32C610066D10A /* skull-n-bones.png */,
+				9602427B14E32C080066D10A /* singleComic.png */,
 				9608F30314DED3A500792CE0 /* SingleComicViewController.xib */,
 				9608F2F514DED3A500792CE0 /* SingleComicViewController.h */,
 				9608F2F614DED3A500792CE0 /* SingleComicViewController.m */,
@@ -323,6 +329,8 @@
 				9608F30814DED3A500792CE0 /* AllComicsViewController.xib in Resources */,
 				9602426814E1667D0066D10A /* default.png in Resources */,
 				9602426F14E1D9600066D10A /* backgroundImage_repeat.png in Resources */,
+				9602427C14E32C080066D10A /* singleComic.png in Resources */,
+				9602427F14E32C610066D10A /* skull-n-bones.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

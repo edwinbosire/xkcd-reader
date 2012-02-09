@@ -21,12 +21,13 @@
 }
 
 @property (nonatomic, strong) comic *currentComic;
+@property (nonatomic, strong) MKNetworkOperation *operation;
 
 typedef void (^ComicResponseBlock)(comic* aComic);
 
 typedef void (^ComicCollectionResponseBlock)(NSMutableArray* allComics);
 
-- (void)getCurrentComicWithURL:(NSString*)URL onCompletion:(ComicResponseBlock) receivedComic;
+- (void)getCurrentComicWithURL:(NSString*)URL onCompletion:(ComicResponseBlock) receivedComic onError:(MKNKErrorBlock) error;;
 - (void)getComicCollection:(NSString*)URL onCompletion:(ComicCollectionResponseBlock) receivedComics;
 
 @end

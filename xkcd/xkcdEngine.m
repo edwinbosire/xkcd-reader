@@ -12,13 +12,14 @@
 
 @implementation xkcdEngine
 @synthesize currentComic;
+@synthesize operation;
 
-- (void)getCurrentComicWithURL:(NSString*)URL onCompletion:(ComicResponseBlock) receivedComic{
+- (void)getCurrentComicWithURL:(NSString*)URL onCompletion:(ComicResponseBlock) receivedComic onError:(MKNKErrorBlock) errorBlock;{
     
-    MKNetworkOperation *operation = [self operationWithPath:URL params:nil httpMethod:@"GET"];
+    self.operation = [self operationWithPath:URL params:nil httpMethod:@"GET"];
     
     
-    [operation onCompletion:^(MKNetworkOperation *completedOperation){
+    [self.operation onCompletion:^(MKNetworkOperation *completedOperation){
 
       
         if([completedOperation isCachedResponse]) {
@@ -55,18 +56,24 @@
         
     }onError:^(NSError *error){
         NSLog(@"there has been an error %@", error);
+        errorBlock(error);
                     }];
     
-    [self enqueueOperation:operation];
+    
+    [self enqueueOperation:self.operation];
     
     
 }
 
 - (void)getComicCollection:(NSString*)URL onCompletion:(ComicCollectionResponseBlock) receivedComics{
     
-    MKNetworkOperation *operation = [self operationWithPath:URL params:nil httpMethod:@"GET"];
-    [operation onCompletion:^(MKNetworkOperation *completedOperation){
+    self.operation = [self operationWithPath:URL params:nil httpMethod:@"GET"];
+    [self.operation onCompletion:^(MKNetworkOperation *completedOperation){
         NSDictionary *response = [completedOperation responseJSON];
+        
+        if (!response) {
+            return;
+        }
         currentComic = [[comic alloc] init];
         NSMutableArray *comicArray = [[NSMutableArray alloc] init ];
         
@@ -105,7 +112,7 @@
         NSLog(@"there has been an error %@", error);
     }];
     
-    [self enqueueOperation:operation];
+    [self enqueueOperation:self.operation];
     [self useCache];
     
 }

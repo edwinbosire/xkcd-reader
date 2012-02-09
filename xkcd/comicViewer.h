@@ -25,6 +25,8 @@
 
 @property (strong, nonatomic) comic *aComic;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (nonatomic, strong) MKNetworkOperation *operation;
+
 
 - (void)BackgroundImageLoadingwithURL:(NSString *)url;
 @end

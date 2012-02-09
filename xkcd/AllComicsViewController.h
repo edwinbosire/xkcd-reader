@@ -29,4 +29,5 @@
 @property (strong, nonatomic) NSMutableArray *comicCollection;
 
 -(void)downloadFinished:(NSMutableArray*)comics;
+-(void)startDownloadProcess;
 @end

@@ -24,7 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"All", @"All");
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.tabBarItem.image = [UIImage imageNamed:@"skull-n-bones"];
     }
     return self;
 }
@@ -49,14 +49,29 @@
     comicCollection = [[NSMutableArray alloc] init ];
     
     progress = [[MBProgressHUD alloc] initWithView:self.view];
+    [progress setMode:MBProgressHUDModeDeterminate];
     [self.view addSubview:progress];
     progress.delegate = self;
     progress.labelText = @"Loading XKCD...";    
     [progress show:YES];
     
+    [self startDownloadProcess];
     
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
     
-    Engine = [[xkcdEngine alloc] initWithHostName:@"xkcd.com" customHeaderFields:nil];
+}
+
+#pragma mark -
+#pragma mark - Download XKCD
+- (void)startDownloadProcess{
+    NSMutableDictionary *headerFields = [NSMutableDictionary dictionary]; 
+    [headerFields setValue:@"iOS" forKey:@"x-client-identifier"];
+    
+    Engine = [[xkcdEngine alloc] initWithHostName:@"xkcd.com" customHeaderFields:headerFields];
     [Engine useCache];
     
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -64,12 +79,24 @@
         
         NSString *currentTag = [NSString stringWithFormat:@"%i",x];
         
-        [Engine getCurrentComicWithURL:XKCD_URL([currentTag urlEncodedString]) onCompletion:^(comic *aComic){
+        [Engine getCurrentComicWithURL:XKCD_URL([currentTag urlEncodedString]) onCompletion:^(comic *aComic) {
             
             [tempArray addObject:aComic];
             
             if (x==614) [self downloadFinished:tempArray];
             
+        }
+                               onError:^(NSError *error){
+                                   
+                                   NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason], 
+                                         [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
+                                   
+                               }];
+        
+        [Engine.operation onDownloadProgressChanged:^(double progressStatus){
+            
+            NSLog(@"download Progress %.2f ", progressStatus*100);
+            [progress setProgress:progressStatus];
         }];
     }
     
@@ -77,7 +104,7 @@
     
 }
 
--(void)downloadFinished:(NSMutableArray*)comics{
+- (void)downloadFinished:(NSMutableArray*)comics{
     
     
     [comics sortUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"tag" ascending:NO]]];
@@ -86,15 +113,17 @@
     [myTableView reloadData];
     [progress hide:YES];
 }
--(void)hudWasHidden{
+
+- (void)hudWasHidden{
     
     [progress removeFromSuperViewOnHide];
 }
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    
-}
+
+
+
+
+#pragma mark -
+#pragma mark - AutoRotate
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

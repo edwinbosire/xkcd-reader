@@ -8,10 +8,11 @@
 
 #import "comicViewer.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MKNetworkKit.h"
 @implementation comicViewer
 @synthesize aComic;
 @synthesize imageView;
-
+@synthesize operation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -86,18 +87,47 @@
 }
 - (void)BackgroundImageLoadingwithURL:(NSString *)url{
     
-    dispatch_queue_t backgroundQueue = dispatch_queue_create("uk.co.edwinb.xkcd", NULL);
+//    dispatch_queue_t backgroundQueue = dispatch_queue_create("uk.co.edwinb.xkcd", NULL);
+//    
+//    dispatch_async(backgroundQueue, ^{
+//        NSURL *properURL = [NSURL URLWithString:url];
+//        NSData *imageData = [NSData dataWithContentsOfURL:properURL];
+//        UIImage *image = [UIImage imageWithData:imageData];
+//        UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            [self setImageView:imgView];
+//            
+//        });
+//    });
     
-    dispatch_async(backgroundQueue, ^{
-        NSURL *properURL = [NSURL URLWithString:url];
-        NSData *imageData = [NSData dataWithContentsOfURL:properURL];
-        UIImage *image = [UIImage imageWithData:imageData];
-        UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self setImageView:imgView];
+    MKNetworkEngine *imageEngine = [[MKNetworkEngine alloc] initWithHostName:@"xkcd.com" customHeaderFields:nil];
+    
+    self.operation = [imageEngine imageAtURL:[NSURL URLWithString:url] onCompletion:^(UIImage *fetchedImage, NSURL *imageURL, BOOL isInCache){
+        
+        if([url isEqualToString:[imageURL absoluteString]]) {
             
-        });
-    });
+            if (isInCache) {
+                [self.imageView setImage:fetchedImage];
+            } else {
+                UIImageView *loadedImageView = [[UIImageView alloc] initWithImage:fetchedImage];
+                loadedImageView.frame = self.imageView.frame;
+                loadedImageView.alpha = 0;
+                [scrollView addSubview:loadedImageView];
+                [UIView animateWithDuration:0.4
+                                 animations:^
+                 {
+                     loadedImageView.alpha = 1;
+                     self.imageView.alpha = 0;
+                 }
+                                 completion:^(BOOL finished)
+                 {
+                     self.imageView.image = fetchedImage;
+                     self.imageView.alpha = 1;
+                     [loadedImageView removeFromSuperview];
+                 }];
+            }
+        }
+    }];
     
 }
 
@@ -126,6 +156,9 @@
     progress.delegate = self;
     progress.labelText = @"Loading XKCD...";    
     [progress show:YES];
+    
+    
+    
     
     
 }

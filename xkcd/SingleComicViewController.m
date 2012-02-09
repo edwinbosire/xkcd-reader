@@ -23,10 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Latest", @"Latest");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
-        
-
-        
+        self.tabBarItem.image = [UIImage imageNamed:@"singleComic"];
     }
     return self;
 }
@@ -73,7 +70,13 @@
         [progress hide:YES];
         
         
-    }];
+    }onError:^(NSError *error){
+        
+        NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason], 
+             [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
+     
+     
+    } ];
     
 
 }
