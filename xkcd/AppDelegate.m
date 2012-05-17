@@ -8,9 +8,14 @@
 
 #import "AppDelegate.h"
 
-#import "SingleComicViewController.h"
+#import "favouriteViewController.h"
 
 #import "AllComicsViewController.h"
+
+#import "FlurryAnalytics.h"
+
+#warning FLURRY KEY IS MISSING
+#define kFLURRY_KEY @"PUT-YOUR-FLURRY-KEY-HERE"
 
 @implementation AppDelegate
 
@@ -24,15 +29,68 @@
     // Override point for customization after application launch.
     
  
-    UIViewController *viewController1 = [[SingleComicViewController alloc] initWithNibName:@"SingleComicViewController" bundle:nil];
-    UIViewController *viewController2 = [[AllComicsViewController alloc] initWithNibName:@"AllComicsViewController" bundle:nil];
-    navigationalController = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    UIViewController *favouriteVC = [[favouriteViewController alloc] initWithStyle:UITableViewStylePlain];
+    UIViewController *allComicsVC = [[AllComicsViewController alloc] initWithNibName:@"AllComicsViewController" bundle:nil];
+    
+    navigationalController = [[UINavigationController alloc] initWithRootViewController:allComicsVC];
+    UINavigationController *favouriteNavigationController = [[UINavigationController alloc] initWithRootViewController:favouriteVC];
+    
+    UITabBarItem *updatesItem = [[UITabBarItem alloc] initWithTitle:@"Comics" image:[UIImage imageNamed:@"chats.png"] tag:1];
+    [navigationalController setTabBarItem:updatesItem];
+    
+    UITabBarItem *favItem = [[UITabBarItem alloc] initWithTitle:@"Favourites" image:[UIImage imageNamed:@"favstar.png"] tag:1];
+    [favouriteNavigationController setTabBarItem:favItem];
+    
     navigationalController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    favouriteNavigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navigationalController,viewController1, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navigationalController,favouriteNavigationController, nil];
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    [self customizeNavigation];
+    
+    [FlurryAnalytics startSession:kFLURRY_KEY];
+    
     return YES;
+}
+
+
+- (void)customizeNavigation{
+    
+    UIImage *navBarImage = [UIImage imageNamed:@"nav-bar.png"];
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage 
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *barButton = [UIImage imageNamed:@"nav-bar-btn.png"];
+    
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal 
+                                          barMetrics:UIBarMetricsDefault];
+    
+    UIImage *backButton = [UIImage imageNamed:@"back-btn-big.png"];
+    
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal 
+                                                    barMetrics:UIBarMetricsDefault];
+    
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tab-bar.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"menu-bar-item-bg.png"]];
+    
+    UIImage *minImage = [UIImage imageNamed:@"slider-fill.png"];
+    UIImage *maxImage = [UIImage imageNamed:@"slider-bg.png"];
+    UIImage *thumbImage = [UIImage imageNamed:@"slider-cap.png"];
+    
+    [[UISlider appearance] setMaximumTrackImage:maxImage 
+                                       forState:UIControlStateNormal];
+    [[UISlider appearance] setMinimumTrackImage:minImage 
+                                       forState:UIControlStateNormal];
+    [[UISlider appearance] setThumbImage:thumbImage 
+                                forState:UIControlStateNormal];
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

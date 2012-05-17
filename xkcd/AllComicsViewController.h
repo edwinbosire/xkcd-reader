@@ -30,4 +30,6 @@
 
 -(void)downloadFinished:(NSMutableArray*)comics;
 -(void)startDownloadProcess;
+
+- (void)retrieveData;
 @end

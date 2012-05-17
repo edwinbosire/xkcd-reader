@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "comic.h"
+#import "Comic.h"
 @interface xkcdCell : UITableViewCell
 
 @property (nonatomic, strong)  UILabel *comicTitle;
 @property (nonatomic, strong)  UILabel *publishcDate;
 @property (nonatomic, strong)  UILabel *comicNumber;
 
--(void) setComicData:(comic *) singleComic;
+-(void) setComicData:(Comic *) singleComic;
 
 @end

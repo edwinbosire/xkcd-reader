@@ -56,27 +56,27 @@
 }
 
 -(void)downloadComic{
-    engine = [[xkcdEngine alloc] initWithHostName:@"xkcd.com" customHeaderFields:nil];
-    
-    
-    [engine getCurrentComicWithURL:XKCDSPECIFIC onCompletion:^(comic *aComic){
-        
-        comic *latestComic = [[comic alloc] init];
-        latestComic = aComic;
-        comicImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:latestComic.imageURL]]];
-        transcripts.text = latestComic.transcript;
-        comicTitle.text = latestComic.title;
-        
-        [progress hide:YES];
-        
-        
-    }onError:^(NSError *error){
-        
-        NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason], 
-             [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
-     
-     
-    } ];
+//    engine = [[xkcdEngine alloc] initWithHostName:@"xkcd.com" customHeaderFields:nil];
+//    
+//    
+//    [engine getCurrentComicWithURL:XKCDSPECIFIC onCompletion:^(comic *aComic){
+//        
+//        comic *latestComic = [[comic alloc] init];
+//        latestComic = aComic;
+//        comicImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:latestComic.imageURL]]];
+//        transcripts.text = latestComic.transcript;
+//        comicTitle.text = latestComic.title;
+//        
+//        [progress hide:YES];
+//        
+//        
+//    }onError:^(NSError *error){
+//        
+//        NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason], 
+//             [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
+//     
+//     
+//    } ];
     
 
 }

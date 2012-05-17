@@ -7,26 +7,36 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "comic.h"
+#import "Comic.h"
 #import "MBProgressHUD.h"
+#import "EGOImageView.h"
+#import "EGOImageLoader.h"
+#import "xkcdEngine.h"
+#import "transcriptViewController.h"
 
-
-@interface comicViewer : UIViewController < MBProgressHUDDelegate,UIScrollViewDelegate>{
+@interface comicViewer : UIViewController < MBProgressHUDDelegate,UIScrollViewDelegate, EGOImageViewDelegate >{
     
     UIScrollView *scrollView;
-    UIImageView *imageView;
+    EGOImageView *imageView;
     UITextView  *title;
     UITextView  *transcript;
-    comic *aComic;
+    Comic *aComic;
     MBProgressHUD *progress;
+    EGOImageView *EGOimageView;
+    UIView *transcriptView;
+    UIBarButtonItem *save;
+    xkcdEngine *Engine;
+    transcriptViewController *infoView;
+    CGSize size;
 
     
 }
 
-@property (strong, nonatomic) comic *aComic;
-@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) Comic *aComic;
+@property (strong, nonatomic) EGOImageView *imageView;
 @property (nonatomic, strong) MKNetworkOperation *operation;
 
 
 - (void)BackgroundImageLoadingwithURL:(NSString *)url;
+- (void)toggleNavBar:(UITapGestureRecognizer *)gesture;
 @end

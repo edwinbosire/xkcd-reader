@@ -11,23 +11,21 @@
  a sub-class of MKNetworkEngine, it handles all the heavy remote data lifting
  there could be 10's of improvement appended to this class, but i cba, coz it works
  */
+#import <RestKit/RestKit.h>
+#import <CoreData/CoreData.h>
 
-@class comic;
+@class Comic;
 
-@interface xkcdEngine : MKNetworkEngine{
+@interface xkcdEngine : MKNetworkEngine <RKObjectLoaderDelegate>
    
-    __strong comic *currentComic;
-    
-}
 
-@property (nonatomic, strong) comic *currentComic;
-@property (nonatomic, strong) MKNetworkOperation *operation;
 
-typedef void (^ComicResponseBlock)(comic* aComic);
+- (NSArray*)retrieveComics;
+- (void) initializeStorage;
 
-typedef void (^ComicCollectionResponseBlock)(NSMutableArray* allComics);
+-(void)removeFromFavaourites:(Comic*)notFav;
+- (void)setFavourites:(Comic*)fav;
+- (NSArray*)retrieveFavouritesComics;
 
-- (void)getCurrentComicWithURL:(NSString*)URL onCompletion:(ComicResponseBlock) receivedComic onError:(MKNKErrorBlock) error;;
-- (void)getComicCollection:(NSString*)URL onCompletion:(ComicCollectionResponseBlock) receivedComics;
-
+- (void)loadData;
 @end

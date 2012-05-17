@@ -9,13 +9,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "xkcd/xkcdEngine.m"
-         timestampString = "350431569.237917"
+         timestampString = "353891020.413646"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
-         landmarkName = "-getCurrentComicWithURL:onCompletion:onError:"
-         landmarkType = "5">
+         startingLineNumber = "72"
+         endingLineNumber = "72"
+         landmarkName = "@implementation xkcdEngine"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -37,13 +37,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "xkcd/xkcdEngine.m"
-         timestampString = "350431188.763447"
+         timestampString = "353891020.413646"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-getCurrentComicWithURL:onCompletion:onError:"
-         landmarkType = "5">
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "@implementation xkcdEngine"
+         landmarkType = "3">
          <Locations>
             <Location
                shouldBeEnabled = "No"
@@ -96,17 +96,85 @@
          </Locations>
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "xkcd/xkcdEngine.m"
-         timestampString = "350432703.937614"
+         timestampString = "353891020.413646"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
-         landmarkName = "-getComicCollection:onCompletion:"
+         startingLineNumber = "27"
+         endingLineNumber = "27"
+         landmarkName = "@implementation xkcdEngine"
+         landmarkType = "3">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "-[xkcdEngine getCurrentComicWithURL:onCompletion:onError:]"
+               urlString = "file://localhost/Users/edwin-b/Desktop/Personal/xkcd/xkcd/xkcd/xkcdEngine.m"
+               timestampString = "353582812.52317"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "22"
+               endingLineNumber = "22">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "__58-[xkcdEngine getCurrentComicWithURL:onCompletion:onError:]_block_invoke_0"
+               urlString = "file://localhost/Users/edwin-b/Desktop/Personal/xkcd/xkcd/xkcd/xkcdEngine.m"
+               timestampString = "353582812.523556"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "22"
+               endingLineNumber = "22">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/comicViewer.m"
+         timestampString = "354049013.601848"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
+         landmarkName = "-setImageView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/comicViewer.m"
+         timestampString = "354049013.601848"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
+         landmarkName = "-setImageView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "xkcd/comicViewer.m"
+         timestampString = "354049003.890431"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "-viewDidDisappear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

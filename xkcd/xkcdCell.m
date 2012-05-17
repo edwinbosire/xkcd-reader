@@ -49,11 +49,14 @@
     // Configure the view for the selected state
 }
 
--(void) setComicData:(comic *) singleComic{
+-(void) setComicData:(Comic *) singleComic{
     
     self.comicTitle.text = singleComic.title;
-    self.publishcDate.text = [singleComic publishDate];
     self.comicNumber.text = [NSString stringWithFormat:@"#%@", singleComic.tag];
+    
+    NSString *date = [NSString stringWithFormat:@"%@/%@/%@", singleComic.day, singleComic.month, singleComic.year];
+    
+    self.publishcDate.text = date;
     
     //NSLog(@"=======comic tag %@=======", singleComic.tag);
 

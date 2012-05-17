@@ -1,31 +1,25 @@
 //
-//  comic.h
+//  Comic.h
 //  xkcd
 //
-//  Created by Denis on 06/02/2012.
+//  Created by Edwin on 20/03/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-/*
- Data model for xkcd, no further explanation needed
- */
-
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface comic : NSObject {
-    
 
-    NSString *publishDate;
-    NSString *title;
-    NSString *imageURL;
-    NSString *transcript;
-    NSString *tag;
-}
+@interface Comic : NSManagedObject
 
-@property (nonatomic, strong)  NSString *publishDate;
-@property (nonatomic, strong)  NSString *title;
-@property (nonatomic, strong)  NSString *imageURL;
-@property (nonatomic, strong)  NSString *transcript;
-@property (nonatomic, strong)  NSString *tag;
+@property (nonatomic, retain) NSString * punchline;
+@property (nonatomic, retain) NSString * imageURL;
+@property (nonatomic, retain) NSNumber * month;
+@property (nonatomic, retain) NSNumber * tag;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * transcript;
+@property (nonatomic, retain) NSNumber * day;
+@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) NSNumber * favourite;
 
 @end
