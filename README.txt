@@ -1,6 +1,6 @@
 A simple XKCD iphone app currently available on the app store
 
-![alt tag](http://a647.phobos.apple.com/us/r1000/075/Purple/v4/f2/48/60/f24860ba-e23b-457a-6e6b-457c09cd4cbb/8DNl6XZpc4irCuWBpnObx0-temp-upload.vdourdil.png)
+![](http://a647.phobos.apple.com/us/r1000/075/Purple/v4/f2/48/60/f24860ba-e23b-457a-6e6b-457c09cd4cbb/8DNl6XZpc4irCuWBpnObx0-temp-upload.vdourdil.png)
 
 iTunes: http://itunes.apple.com/gb/app/xkcd-reader/id512726610?mt=8
 
